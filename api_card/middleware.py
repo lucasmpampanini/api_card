@@ -10,7 +10,8 @@ class LoggingMiddleware:
         serializer = LogSerializer(data={
             'method': request.method,
             'endpoint': request.path,
-            'code_status': response.status_code
+            'code_status': response.status_code,
+            'body': request.data
         })
         if serializer.is_valid():
             serializer.save()
